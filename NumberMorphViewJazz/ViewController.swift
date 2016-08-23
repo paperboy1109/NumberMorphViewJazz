@@ -7,19 +7,34 @@
 //
 
 import UIKit
+import NumberMorphView
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet var numberView: NumberMorphView!
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        numberView.currentDigit = 5
+        numberView.animationDuration = 4
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func transitionTapped(sender: AnyObject) {
+        
+        let randomNumber = Int(arc4random_uniform(10))
+        numberView.nextDigit = randomNumber
     }
-
-
+    
+    
+    
 }
 

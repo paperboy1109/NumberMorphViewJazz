@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NumberMorphViewJazz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,64 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="WC4-jt-8tW" customClass="NumberMorphView" customModule="NumberMorphView">
+                                <rect key="frame" x="183" y="28" width="234" height="432"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="432" id="FVP-Kv-k0d"/>
+                                    <constraint firstAttribute="width" constant="234" id="OUK-Cy-VcN"/>
+                                    <constraint firstAttribute="width" constant="240" id="SNK-vd-C1u"/>
+                                    <constraint firstAttribute="height" constant="128" id="XEe-dF-psH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SNK-vd-C1u"/>
+                                        <exclude reference="XEe-dF-psH"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZI-zM-0JS">
+                                <rect key="frame" x="246" y="485" width="109" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4ds-Ub-SxZ"/>
+                                    <constraint firstAttribute="width" constant="109" id="dle-lX-sq0"/>
+                                </constraints>
+                                <state key="normal" title="Transition"/>
+                                <connections>
+                                    <action selector="transitionTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MDJ-0h-Lez"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WC4-jt-8tW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="160" id="0PP-cS-i9w"/>
+                            <constraint firstItem="WC4-jt-8tW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2hZ-Ke-nQE"/>
+                            <constraint firstItem="aZI-zM-0JS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DLc-54-Kec"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WC4-jt-8tW" secondAttribute="trailing" constant="160" id="FtV-8J-TjS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WC4-jt-8tW" secondAttribute="bottom" constant="236" id="IwW-m9-lGI"/>
+                            <constraint firstItem="WC4-jt-8tW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NdT-YR-Eo8"/>
+                            <constraint firstItem="WC4-jt-8tW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="qf0-zw-xVU"/>
+                            <constraint firstItem="WC4-jt-8tW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="216" id="zdG-Tp-qQY"/>
+                            <constraint firstItem="aZI-zM-0JS" firstAttribute="top" secondItem="WC4-jt-8tW" secondAttribute="bottom" constant="25" id="znQ-TN-I0O"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0PP-cS-i9w"/>
+                                <exclude reference="2hZ-Ke-nQE"/>
+                                <exclude reference="FtV-8J-TjS"/>
+                                <exclude reference="zdG-Tp-qQY"/>
+                                <exclude reference="IwW-m9-lGI"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="numberView" destination="WC4-jt-8tW" id="feg-ZM-Oh9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="340" y="205"/>
         </scene>
     </scenes>
 </document>
